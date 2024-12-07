@@ -12,13 +12,15 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.header}>
         <Image 
           source={{ uri: 'https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' }} // URL-based image
+         
+        // source={require('../assets/e.jpg')} 
           style={styles.logo} 
         />
         <Text style={styles.title}>Pokémon Collection</Text>
       </View>
       <TouchableOpacity 
         style={styles.addButton} 
-        
+        onPress={() => navigation.navigate('AddPokemon')}
         activeOpacity={0.8}
       >
         <Text style={styles.addButtonText}>+ Add Pokémon</Text>
