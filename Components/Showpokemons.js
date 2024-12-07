@@ -1,33 +1,41 @@
 
 import React from 'react';
 import { View, FlatList, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import PokemonCard from './PokemonCard';
+import { removePokemon } from '../Redux/pokemonSlice';
 
-
-const HomeScreen = ({ navigation }) => {
- 
-
+const Showpokemons = ({ navigation }) => {
+  const pokemons = useSelector(state => state.pokemon.pokemons);
+  const dispatch = useDispatch();
+  const handleDelete = (id) => {
+    dispatch(removePokemon(id));
+  };
   return (
     <View style={styles.container}>
-    
-      <View style={styles.header}>
-        <Image 
-          source={{ uri: 'https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' }} // URL-based image
-         
-        // source={require('../assets/e.jpg')} 
-          style={styles.logo} 
+      {pokemons.length > 0 ? (
+        <FlatList
+          data={pokemons}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) => (
+            <PokemonCard 
+              pokemon={item} 
+              onEdit={() => navigation.navigate('EditPokemon', { pokemon: item })} 
+              onDelete={() => handleDelete(item.id)} 
+            />
+          )}
+          contentContainerStyle={styles.listContent}
+          showsVerticalScrollIndicator={false}
         />
-        <Text style={styles.title}>Pokémon Collection</Text>
-      </View>
-      <TouchableOpacity 
-        style={styles.addButton} 
-        onPress={() => navigation.navigate('AddPokemon')}
-        activeOpacity={0.8}
-      >
-        <Text style={styles.addButtonText}>+ Add Pokémon</Text>
-      </TouchableOpacity>
+      ) : (
+        <View style={styles.emptyStateContainer}>
+          <Text style={styles.emptyStateText}>No Pokémon Added Yet</Text>
+        </View>
+      )}
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -36,7 +44,7 @@ const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
     paddingVertical: 50,
-    backgroundColor: '#007BFF',
+    backgroundColor: '#007BFF', 
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
     elevation: 8,
@@ -98,6 +106,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-
-export default HomeScreen;
+export default Showpokemons;
