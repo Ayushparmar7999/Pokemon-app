@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'; // Use CLI-compatible icon library
+import Icon from 'react-native-vector-icons/Ionicons'; 
 
 const PokemonCard = ({ pokemon, onEdit, onDelete }) => {
   console.log('Pokemon data:', pokemon);
@@ -15,7 +15,7 @@ const PokemonCard = ({ pokemon, onEdit, onDelete }) => {
       <View style={styles.infoContainer}>
         <Text style={styles.title}>{pokemon.name}</Text>
         <Text style={styles.detailText}>Breed: {pokemon.breed}</Text>
-        <Text style={styles.detailText}>Evolve into: {pokemon.Evolve}</Text>
+        <Text style={styles.detailText}>Evolve into: {pokemon.evolve}</Text>
         <Text style={styles.description}>{pokemon.description}</Text>
       </View>
       <View style={styles.actions}>

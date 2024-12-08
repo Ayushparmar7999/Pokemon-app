@@ -9,7 +9,7 @@ const EditPokemonScreen = ({ route, navigation }) => {
   const { pokemon } = route.params;
   const [name, setName] = useState(pokemon.name);
   const [breed, setBreed] = useState(pokemon.breed);
-  const [Evolve, setevolve] = useState(pokemon.Evolve);
+  const [Evolve, setevolve] = useState(pokemon.evolve);
   const [description, setDescription] = useState(pokemon.description);
   const dispatch = useDispatch();
 
@@ -17,7 +17,6 @@ const EditPokemonScreen = ({ route, navigation }) => {
     dispatch(editPokemon({ id: pokemon.id, updatedPokemon: { ...pokemon, name, breed, Evolve, description } }));
     navigation.goBack();
   };
-
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image

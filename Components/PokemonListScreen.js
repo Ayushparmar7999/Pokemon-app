@@ -11,6 +11,7 @@ const PokemonListScreen = ({ navigation }) => {
   const handleDelete = (id) => {
     dispatch(removePokemon(id));
   };
+
   return (
     <View style={styles.container}>
       {pokemons.length > 0 ? (
@@ -35,6 +36,7 @@ const PokemonListScreen = ({ navigation }) => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -57,4 +59,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
 export default PokemonListScreen;
