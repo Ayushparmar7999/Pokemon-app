@@ -9,13 +9,10 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
 };
-
 const rootReducer = combineReducers({
   pokemon: pokemonReducer,
 });
-
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) => 

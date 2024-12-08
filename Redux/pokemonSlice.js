@@ -23,10 +23,9 @@ const pokemonSlice = createSlice({
       }
     },
     setLoading: (state, action) => {
-      state.loading = action.payload; // Set the loading state
+      state.loading = action.payload;
     },
   },
 });
-
 export const { addPokemon, removePokemon, editPokemon,setLoading } = pokemonSlice.actions;
 export default pokemonSlice.reducer;

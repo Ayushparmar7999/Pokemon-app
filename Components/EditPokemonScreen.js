@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { View, TextInput, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { useDispatch } from 'react-redux';

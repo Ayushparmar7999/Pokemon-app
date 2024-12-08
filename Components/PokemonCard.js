@@ -4,14 +4,13 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'; 
 
 const PokemonCard = ({ pokemon, onEdit, onDelete }) => {
-  console.log('Pokemon data:', pokemon);
+  // console.log('Pokemon data:', pokemon);
   return (
     <View style={styles.card}>
       <Image 
         source={require('../assets/images.jpg')} 
         style={styles.pokemonImage} 
       />
-
       <View style={styles.infoContainer}>
         <Text style={styles.title}>{pokemon.name}</Text>
         <Text style={styles.detailText}>Breed: {pokemon.breed}</Text>

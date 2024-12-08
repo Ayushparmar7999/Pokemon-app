@@ -22,7 +22,6 @@ const AddPokemonScreen = ({ navigation }) => {
         evolve, 
         description 
       };
-
       dispatch(addPokemon(newPokemon));
       navigation.navigate('PokemonList'); 
     } else {
@@ -45,7 +44,6 @@ const AddPokemonScreen = ({ navigation }) => {
           value={name} 
         />
       </View>
-
       <View style={styles.inputContainer}>
         <Icon name="paw-outline" size={20} color="#4A90E2" style={styles.icon} />
         <TextInput 
@@ -55,7 +53,6 @@ const AddPokemonScreen = ({ navigation }) => {
           value={breed} 
         />
       </View>
-
       <View style={styles.inputContainer}>
         <Icon name="leaf-outline" size={20} color="#4A90E2" style={styles.icon} />
         <TextInput 
@@ -65,7 +62,6 @@ const AddPokemonScreen = ({ navigation }) => {
           value={evolve} 
         />
       </View>
-
       <View style={styles.inputContainer}>
         <Icon name="chatbubble-outline" size={20} color="#4A90E2" style={styles.icon} />
         <TextInput 
