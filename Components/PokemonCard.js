@@ -15,7 +15,7 @@ const PokemonCard = ({ pokemon, onEdit, onDelete }) => {
       <View style={styles.infoContainer}>
         <Text style={styles.title}>{pokemon.name}</Text>
         <Text style={styles.detailText}>Breed: {pokemon.breed}</Text>
-        <Text style={styles.detailText}>Evolve into: {pokemon.evolve}</Text>
+        <Text style={styles.detailText}>Evolves: {pokemon.evolve}</Text>
         <Text style={styles.description}>{pokemon.description}</Text>
       </View>
       <View style={styles.actions}>

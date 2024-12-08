@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -11,6 +10,7 @@ const AddPokemonScreen = ({ navigation }) => {
   const [breed, setBreed] = useState('');
   const [evolve, setEvolve] = useState('');
   const [description, setDescription] = useState('');
+
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
@@ -22,20 +22,19 @@ const AddPokemonScreen = ({ navigation }) => {
         evolve, 
         description 
       };
+
       dispatch(addPokemon(newPokemon));
       navigation.navigate('PokemonList'); 
     } else {
       alert('Please fill in all the fields.');
     }
   };
-
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image 
         source={{ uri: 'https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png' }} 
         style={styles.headerImage} 
       />
-      
       <Text style={styles.title}>Add Your Pokémon</Text>
       <View style={styles.inputContainer}>
         <Icon name="person-outline" size={20} color="#4A90E2" style={styles.icon} />
@@ -60,7 +59,7 @@ const AddPokemonScreen = ({ navigation }) => {
       <View style={styles.inputContainer}>
         <Icon name="leaf-outline" size={20} color="#4A90E2" style={styles.icon} />
         <TextInput 
-          placeholder="Evolve Into" 
+          placeholder="Evolves Into" 
           style={styles.input} 
           onChangeText={setEvolve} 
           value={evolve} 
@@ -88,7 +87,6 @@ const AddPokemonScreen = ({ navigation }) => {
     </ScrollView>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     padding: 20,
@@ -100,7 +98,7 @@ const styles = StyleSheet.create({
     width: 150,
     height: 150,
     resizeMode: 'contain',
-    marginBottom: 10,
+    marginBottom: 6,
     marginTop: -10,
   },
   title: {
@@ -144,7 +142,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
-    elevation: 10, // For Android elevation
+    elevation: 10,
   },
   addButtonText: {
     color: '#FFFFFF',
@@ -152,5 +150,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
 export default AddPokemonScreen;
